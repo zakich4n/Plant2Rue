@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MaNouvellePlante0Activity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_backgroundplant"></ImageView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="380dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:letterSpacing="0.05"
+        android:text="Quel est le petit nom de ta plante ?"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"></TextView>
+
+    <EditText
+        android:id="@+id/editText_nomPlante"
+        android:layout_width="380dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="48dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_nomplante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        android:maxLines="1"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/ereur_nomPlante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="Entrer un nom pour votre petite plante"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nomPlante"></TextView>
+
+    <Button
+        android:id="@+id/selection_type_go"
+        android:layout_width="86dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/Transparent"
+        android:drawableTop="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

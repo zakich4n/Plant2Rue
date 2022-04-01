@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MaPlanteActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@drawable/main_backgroundplant"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="165dp"></ImageView>
+
+    <TextView
+        android:id="@+id/textView_NomPlanteActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="Titouan"
+        android:textColor="@color/white"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView_planteActivity"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"></ImageView>
+
+    <ImageView
+        android:id="@+id/humeur_plante"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/emoji_coeur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView_planteActivity"></ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_planteActivity"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Température :"
+            android:textSize="35dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"></TextView>
+
+        <TextView
+            android:id="@+id/température_reelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 26 / "
+            android:textSize="40dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"></TextView>
+
+        <TextView
+            android:id="@+id/température_ideal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 °C"
+            android:textSize="40dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"></TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Humidité :"
+            android:textColor="@color/white"
+            android:textSize="35dp"></TextView>
+
+        <TextView
+            android:id="@+id/humidité_reelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text=" 40 / "
+            android:textColor="@color/white"
+            android:textSize="40dp"></TextView>
+
+        <TextView
+            android:id="@+id/humidité_ideal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="50 %"
+            android:textColor="@color/white"
+            android:textSize="40dp"></TextView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Luminosité :"
+            android:textColor="@color/white"
+            android:textSize="35dp"></TextView>
+
+        <TextView
+            android:id="@+id/luminosité_reelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text=" 2,9 / "
+            android:textColor="@color/white"
+            android:textSize="40dp"></TextView>
+
+        <TextView
+            android:id="@+id/luminosité_ideal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="3 lux"
+            android:textColor="@color/white"
+            android:textSize="40dp"></TextView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_historic"
+        android:layout_width="86dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/Transparent"
+        android:drawableTop="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
