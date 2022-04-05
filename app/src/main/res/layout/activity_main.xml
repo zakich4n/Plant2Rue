@@ -10,35 +10,35 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/main_backgroundplant"></ImageView>
+        android:background="@drawable/main_backgroundplant" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:text="Mon Jardin connecté"
-        android:textSize="50dp"
+    <ImageView
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:background="@drawable/plant2rue_logo"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.207"></ImageView>
 
     <Button
         android:id="@+id/btn_newTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_type"
         android:text="Lancer !"
+        android:textColor="@color/white"
         android:textSize="40dp"
-        android:background="@color/vert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.707"></Button>
 
     <Button
         android:id="@+id/btn_go_notif"
