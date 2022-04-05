@@ -11,8 +11,6 @@ import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 
-import com.example.myfirstapp.activity.MainActivity;
-
 public class NotificationHelper extends ContextWrapper {
     private NotificationManager notifManager;
 
@@ -53,17 +51,22 @@ public class NotificationHelper extends ContextWrapper {
     public void notify( int id, boolean prioritary, String title, String message ) {
         String channelId = prioritary ? CHANNEL_HIGH_ID : CHANNEL_DEFAULT_ID;
         Resources res = getApplicationContext().getResources();
+
+        /*
         Context context = getApplicationContext();
 
-        /* Lien avec l'activité à ouvrir : ici MainActivity */
-        Intent notificationIntent = new Intent(context, MainActivity.class);
+        // Lien avec l'activité à ouvrir : ici MainActivity
+        Intent notificationIntent = new Intent(context, ArrosageActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(
                 context, 456, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+         */
+
 
         Notification notification = new Notification.Builder( getApplicationContext(), channelId )
                 .setContentTitle( title )
                 .setContentText( message )
-                .setSmallIcon( R.drawable.ic_launcher )
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setLargeIcon( BitmapFactory.decodeResource(res, R.drawable.ic_launcher) )
                 .setAutoCancel( true )
                 .build();

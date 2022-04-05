@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.myfirstapp.singleton_and_adapter;
 
 import android.util.Log;
 

@@ -38,12 +38,11 @@
 
         <Button
             android:id="@+id/selection_type_choisie"
-            android:layout_gravity="center"
             android:layout_width="86dp"
-            android:layout_height="67dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
             android:background="@color/Transparent"
             android:drawableTop="@drawable/ic_baseline_arrow_forward_24"></Button>
-
 
 
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.myfirstapp.singleton_and_adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myfirstapp.R;
 import com.example.myfirstapp.object.Plante;
-import com.example.myfirstapp.singleton_and_adapter.OnRecyclerItemClickListener;
 import com.squareup.picasso.Picasso;
 
 

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfirstapp.LesPlantesSingleton;
+import com.example.myfirstapp.singleton_and_adapter.LesPlantesSingleton;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;

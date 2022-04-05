@@ -13,4 +13,10 @@
     <color name="colorPrimary">#187118</color>
     <color name="colorAccent">#187118</color>
     <color name="colorPrimaryDark">#187118</color>
+
+    <color name="colorTemperature">#E42E0E</color>
+    <color name="colorHumidity1">#2C6AAC</color>
+    <color name="colorLuminosity">#ED9804</color>
+    <color name="colorHumidity2">#0A91A8</color>
+
 </resources>

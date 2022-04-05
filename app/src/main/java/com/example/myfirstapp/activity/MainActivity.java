@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfirstapp.NotificationActivity;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ArrayList<Plante> listExists = dbManager.checkIfExist();
-        Log.d("debug", "par ici "+String.valueOf(listExists));
+        Log.d("debug", String.valueOf(listExists));
 
 
 
@@ -83,4 +82,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent_ntotification_go = new Intent(this, NotificationActivity.class);
         startActivity(intent_ntotification_go);
     }
+
 }
