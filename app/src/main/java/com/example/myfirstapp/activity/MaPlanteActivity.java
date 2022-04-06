@@ -176,10 +176,10 @@ public class MaPlanteActivity extends AppCompatActivity {
 
             Log.d("humeur", String.valueOf(eval));
 
-            if (eval >= 35 ) {
+            if (eval >= 10 ) {
                 humeur_Plante.setImageDrawable(emoji_malade);
             } else {
-                if (eval >= 20) {
+                if (eval >= 5) {
                     humeur_Plante.setImageDrawable(emoji_neutre);
                 } else {
                     humeur_Plante.setImageDrawable(emoji_coeur);
