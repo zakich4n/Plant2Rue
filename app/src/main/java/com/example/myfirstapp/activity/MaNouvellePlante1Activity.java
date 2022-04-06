@@ -58,13 +58,13 @@ public class MaNouvellePlante1Activity extends AppCompatActivity implements OnRe
             e.printStackTrace();
         }
 
-
         Plante plante1 = new Plante("Monstera", "https://cdn.shopify.com/s/files/1/1752/4567/products/monstera_sm_10_eva_latte_1200x1200.png?v=1539265671",24, 45,80,800);
         Plante plante2 = new Plante("Mint", "https://mosfresh.co.za/images/thumbs/0000235_mint-30g.png",25, 60, 85, 900);
         Plante plante3 = new Plante("Bonsai", "https://bonsaiarteviva.com.br/wp-content/uploads/2020/08/shimpaku-2-962x1024.png", 23, 50, 90, 850);
         Plante plante4 = new Plante("Dracena", "https://cdn.shopify.com/s/files/1/1752/4567/products/dracaena_mass_stump_branched_10_eva_white_1200x1200.png?v=1537195984", 22, 40, 75, 700);
         Plante plante6 = new Plante("Aloe Vera", "https://images.nieuwkoop-europe.com/images/5ALVBKK24.png",  24, 30, 70, 850);
 
+        Log.d("temp", String.valueOf(plante2));
 
         //Insertion des plantes
         dbManager.insertPlante(plante1);
@@ -76,6 +76,8 @@ public class MaNouvellePlante1Activity extends AppCompatActivity implements OnRe
         Log.d("database", "Les insertions dans la base de données sont terminées");
 
         listPlantesActivity = dbManager.getAllPlantes();
+
+
 
         //Pour la RecyclerView
         recyclerView = findViewById(R.id.recyclerview_typePlante);

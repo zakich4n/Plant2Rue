@@ -93,6 +93,7 @@ public class MaPlanteActivity extends AppCompatActivity {
 
         TextView textView_NomPlanteActivity = (TextView) findViewById(R.id.textView_NomPlanteActivity);
 
+        Log.d("temp", String.valueOf(LaPlante.toStringInfotmation()));
         textView_temperature_I.setText(LaPlante.temperature+" °C ");
         textView_humidite_I.setText(LaPlante.humidite+" % ");
         textView_luminosite_I.setText(LaPlante.luminosite+" lx ");

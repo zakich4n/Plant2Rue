@@ -50,9 +50,9 @@ public class Plante {
 
 
     public String toString(){
-        return "La plante est --> "+nomType+" avec une cover --> "+cover;
+        return "La plante est --> "+nomType+" avec une cover --> "+cover+ "et temp "+temperature+ "et hum "+humidite;
     }
     public String toStringInfotmation(){
-        return "La plante du nom de "+nom+" est --> "+nomType+" avec une cover --> "+cover;
+        return "La plante du nom de "+nom+" est --> "+nomType+" avec une cover --> "+cover+ "et temp "+temperature;
     }
 }

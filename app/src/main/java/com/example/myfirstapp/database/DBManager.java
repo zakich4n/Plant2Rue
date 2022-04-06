@@ -52,7 +52,7 @@ public class DBManager {
         plante.setNom(cursor.getString(cursor.getColumnIndex("nom")));
         plante.setNomType(cursor.getString(cursor.getColumnIndex("nomType")));
         plante.setCover(cursor.getString(cursor.getColumnIndex("cover")));
-        plante.setHumidite(cursor.getInt(cursor.getColumnIndex("temperature")));
+        plante.setTemperature(cursor.getInt(cursor.getColumnIndex("temperature")));
         plante.setHumidite(cursor.getInt(cursor.getColumnIndex("humidite")));
         plante.setUv(cursor.getInt(cursor.getColumnIndex("uv")));
         plante.setLuminosite(cursor.getInt(cursor.getColumnIndex("luminosite")));
