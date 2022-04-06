@@ -15,6 +15,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"></ImageView>
 
+
     <TextView
         android:id="@+id/textView_NomPlanteActivity"
         android:layout_width="match_parent"
@@ -54,6 +55,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Température :"
-            android:textSize="35dp"
+            android:textSize="27dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/white"></TextView>
 
@@ -75,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 26 / "
-            android:textSize="40dp"
+            android:textSize="32dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/white"></TextView>
 
@@ -84,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="25 °C"
-            android:textSize="40dp"
+            android:textSize="27dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/white"></TextView>
 
@@ -95,6 +97,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,9 +110,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="Humidité :"
+            android:text="Humidité (air):"
             android:textColor="@color/white"
-            android:textSize="35dp"></TextView>
+            android:textSize="27dp"></TextView>
 
         <TextView
             android:id="@+id/humidité_reelle"
@@ -118,7 +121,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text=" 40 / "
             android:textColor="@color/white"
-            android:textSize="40dp"></TextView>
+            android:textSize="32dp"></TextView>
 
         <TextView
             android:id="@+id/humidité_ideal"
@@ -127,14 +130,16 @@
             android:fontFamily="@font/roboto_bold"
             android:text="50 %"
             android:textColor="@color/white"
-            android:textSize="40dp"></TextView>
+            android:textSize="27dp"></TextView>
 
     </LinearLayout>
 
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +154,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text="Luminosité :"
             android:textColor="@color/white"
-            android:textSize="35dp"></TextView>
+            android:textSize="27dp"></TextView>
 
         <TextView
             android:id="@+id/luminosité_reelle"
@@ -158,7 +163,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text=" 2,9 / "
             android:textColor="@color/white"
-            android:textSize="40dp"></TextView>
+            android:textSize="32dp"></TextView>
 
         <TextView
             android:id="@+id/luminosité_ideal"
@@ -167,9 +172,50 @@
             android:fontFamily="@font/roboto_bold"
             android:text="3 lux"
             android:textColor="@color/white"
-            android:textSize="40dp"></TextView>
+            android:textSize="27dp"></TextView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Humidité (terre) :"
+            android:textColor="@color/white"
+            android:textSize="27dp"></TextView>
+
+        <TextView
+            android:id="@+id/humidité2_reelle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text=" 2,9 / "
+            android:textColor="@color/white"
+            android:textSize="32dp"></TextView>
+
+        <TextView
+            android:id="@+id/humidité2_ideal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="3 lux"
+            android:textColor="@color/white"
+            android:textSize="27dp"></TextView>
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -196,6 +242,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958"></Button>
+
+    <TextView
+        android:id="@+id/textview_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:text="Chargement ..."
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -333,18 +333,18 @@ public class HistoriqueActivity extends AppCompatActivity {
                         if (!TextUtils.isEmpty(result)) {
 
                             if (id == 1) {
-                                tempList = JsonParcer.getInstance().parseJson(result, id);
+                                tempList = JsonParcer.getInstance().parseJsonList(result, id);
                                 Log.d("debug", "Temp -> "+String.valueOf(tempList));
                             } else {
                                 if (id ==2) {
-                                    humList = JsonParcer.getInstance().parseJson(result, id);
+                                    humList = JsonParcer.getInstance().parseJsonList(result, id);
                                     Log.d("debug", "Hum -> "+String.valueOf(humList));
                                 } else {
                                     if (id ==3 ){
-                                        lumpList = JsonParcer.getInstance().parseJson(result, id);
+                                        lumpList = JsonParcer.getInstance().parseJsonList(result, id);
                                         Log.d("debug", "Lum -> "+String.valueOf(lumpList));
                                     } else {
-                                        hum2List = JsonParcer.getInstance().parseJson(result, id);
+                                        hum2List = JsonParcer.getInstance().parseJsonList(result, id);
                                         Log.d("debug", "Hum2 -> "+String.valueOf(hum2List));
                                     }
                                 }

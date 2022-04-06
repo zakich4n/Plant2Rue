@@ -3,22 +3,34 @@ package com.example.myfirstapp.activity;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfirstapp.JsonParcer;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private DBManager dbManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent_MaNouvellePlante0Activity = new Intent(this, MaNouvellePlante0Activity.class);
         Intent intent_MaPlanteActivity = new Intent(this, MaPlanteActivity.class);
 
+
         //Base de données
         Log.d("debug", "Pour la base de données des types de plantes");
         Log.d("database", "Ouverture de la base de données");
@@ -72,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent_MaNouvellePlante0Activity);
         } else {
             Log.d("database", "enregistré");
+
             startActivity(intent_MaPlanteActivity);
         }
 
