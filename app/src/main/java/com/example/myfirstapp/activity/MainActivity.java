@@ -3,28 +3,18 @@ package com.example.myfirstapp.activity;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfirstapp.JsonParcer;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -93,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void Notification_go(){
-        Intent intent_ntotification_go = new Intent(this, NotificationActivity.class);
+        Intent intent_ntotification_go = new Intent(this, ResetActivity.class);
         startActivity(intent_ntotification_go);
     }
 

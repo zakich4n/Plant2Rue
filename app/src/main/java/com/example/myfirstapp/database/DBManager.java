@@ -98,9 +98,11 @@ public class DBManager {
         return plantExists;
     }
 
-    public void ResetApp() {
-        String strSql = "drop table Plantes";
-        database.execSQL( strSql );
+
+    public void Delete(){
+        database.delete("Plantes", "nom is not null", null );
+
     }
+
 
 }

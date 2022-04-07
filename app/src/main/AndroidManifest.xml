@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.NotificationActivity"
+            android:name=".activity.ResetActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MaNouvellePlante2Activity"
