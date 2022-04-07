@@ -43,26 +43,8 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
-        new AsynchroneTask().execute();
 
 
 
-
-    }
-
-    public class AsynchroneTask extends AsyncTask<String, Integer, String> {
-
-        @Override
-        protected void onPreExecute() {
-            Log.d("ordre", "onPreExecute");
-
-
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            return "";
-        }
     }
 }

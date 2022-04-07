@@ -180,14 +180,14 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
             Plante LaPlante = dbManager.checkIfExist().get(0);
 
-            double eval =  Math.abs(temp_current- LaPlante.temperature) + Math.abs(hum1_current-LaPlante.humidite)/5 + Math.abs(lum_current-LaPlante.luminosite)/100 + Math.abs(hum2_current-LaPlante.uv)/8;
+            double eval =  Math.abs(temp_current- LaPlante.temperature) + Math.abs(hum1_current-LaPlante.humidite)/5 + Math.abs(lum_current-LaPlante.luminosite)/100 + Math.abs(hum2_current-LaPlante.uv)/100;
 
-            Log.d("humeur", String.valueOf(eval));
+            Log.d("mood", String.valueOf(eval));
 
             if (eval >= 10 ) {
                 humeur_Plante.setImageDrawable(emoji_malade);
                 NotificationHelper notificationHelper = new NotificationHelper(MaPlanteActivity.this);
-                notificationHelper.notify(1, true, "J'ai soif !", "Votre plante manque d'eau !");
+                notificationHelper.notify(1, true, "J'ai soif !", "Votre plante manque d'affection !");
                 Log.i("NotificationActivity", "Notification launched");
             } else {
                 if (eval >= 5) {

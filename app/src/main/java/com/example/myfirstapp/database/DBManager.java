@@ -98,4 +98,9 @@ public class DBManager {
         return plantExists;
     }
 
+    public void ResetApp() {
+        String strSql = "drop table Plantes";
+        database.execSQL( strSql );
+    }
+
 }

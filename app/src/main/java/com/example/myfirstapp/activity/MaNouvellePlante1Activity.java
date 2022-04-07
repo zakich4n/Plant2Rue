@@ -58,11 +58,17 @@ public class MaNouvellePlante1Activity extends AppCompatActivity implements OnRe
             e.printStackTrace();
         }
 
-        Plante plante1 = new Plante("Monstera", "https://cdn.shopify.com/s/files/1/1752/4567/products/monstera_sm_10_eva_latte_1200x1200.png?v=1539265671",24, 45,80,800);
-        Plante plante2 = new Plante("Mint", "https://mosfresh.co.za/images/thumbs/0000235_mint-30g.png",25, 60, 85, 900);
-        Plante plante3 = new Plante("Bonsai", "https://bonsaiarteviva.com.br/wp-content/uploads/2020/08/shimpaku-2-962x1024.png", 23, 50, 90, 850);
-        Plante plante4 = new Plante("Dracena", "https://cdn.shopify.com/s/files/1/1752/4567/products/dracaena_mass_stump_branched_10_eva_white_1200x1200.png?v=1537195984", 22, 40, 75, 700);
-        Plante plante6 = new Plante("Aloe Vera", "https://images.nieuwkoop-europe.com/images/5ALVBKK24.png",  24, 30, 70, 850);
+        Plante plante1 = new Plante("Monstera", "https://cdn.shopify.com/s/files/1/1752/4567/products/monstera_sm_10_eva_latte_1200x1200.png?v=1539265671",24, 45,670,800);
+        Plante plante2 = new Plante("Mint", "https://mosfresh.co.za/images/thumbs/0000235_mint-30g.png",25, 60, 695, 900);
+        Plante plante3 = new Plante("Bonsai", "https://bonsaiarteviva.com.br/wp-content/uploads/2020/08/shimpaku-2-962x1024.png", 23, 50, 690, 850);
+        Plante plante4 = new Plante("Dracena", "https://cdn.shopify.com/s/files/1/1752/4567/products/dracaena_mass_stump_branched_10_eva_white_1200x1200.png?v=1537195984", 22, 40, 685, 700);
+        Plante plante6 = new Plante("Aloe Vera", "https://images.nieuwkoop-europe.com/images/5ALVBKK24.png",  24, 45, 680, 850);
+        Plante plante7 = new Plante("Calathea", "https://undergreen.be/wp-content/uploads/sites/3/2020/02/calathea-1.png", 24, 35, 700, 870);
+        Plante plante8 = new Plante("Yucca", "https://fleurenflower.nl/wp-content/uploads/2020/05/Canva-Potted-Yucca-Plant-1-790x1024.png", 25, 60, 675, 855);
+        Plante plante9 = new Plante("Kentia", "https://jngl.nl/images/products/kentia-palm-b9b7.png", 25, 65,685, 905 );
+        Plante plante10 = new Plante("Zamiocuclcas", "https://i.pinimg.com/originals/e9/bb/fd/e9bbfd17c2039ad0c0249c3a4e368623.png", 25, 50, 687, 887);
+        Plante plante11 = new Plante("Pothos", "https://www.pngkit.com/png/full/6-64377_low-light-interior-plant-jade-pothos-small-indoor.png", 24, 60, 678, 860);
+        Plante plante12 = new Plante("Elastica", "https://www.thegardenstore.sg/image/cache/catalog/products/Plant/Ficus%20Elastica%20Green%20Rubber%20Plant-910x1155.png", 26, 55, 700, 830);
 
         Log.d("temp", String.valueOf(plante2));
 
@@ -72,6 +78,13 @@ public class MaNouvellePlante1Activity extends AppCompatActivity implements OnRe
         dbManager.insertPlante(plante3);
         dbManager.insertPlante(plante4);
         dbManager.insertPlante(plante6);
+        dbManager.insertPlante(plante7);
+        dbManager.insertPlante(plante8);
+        dbManager.insertPlante(plante9);
+
+        dbManager.insertPlante(plante11);
+        dbManager.insertPlante(plante12);
+
 
         Log.d("database", "Les insertions dans la base de données sont terminées");
 

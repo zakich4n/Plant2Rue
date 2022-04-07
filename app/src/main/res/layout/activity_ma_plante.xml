@@ -221,10 +221,15 @@
         android:id="@+id/btn_water_act"
         android:layout_width="101dp"
         android:layout_height="42dp"
-        android:text="Water"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/arroser"
+        android:text="Arroser !"
         android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/textView3" />
+        app:layout_constraintRight_toLeftOf="@id/textView3"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
