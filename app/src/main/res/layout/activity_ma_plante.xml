@@ -177,6 +177,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -216,8 +217,17 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_water_act"
+        android:layout_width="101dp"
+        android:layout_height="42dp"
+        android:text="Water"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/textView3" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Historique"
@@ -228,7 +238,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.949"></TextView>
+        app:layout_constraintVertical_bias="0.949" />
 
     <Button
         android:id="@+id/btn_historic"
@@ -241,7 +251,7 @@
         app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958"></Button>
+        app:layout_constraintVertical_bias="0.958" />
 
     <TextView
         android:id="@+id/textview_progress"

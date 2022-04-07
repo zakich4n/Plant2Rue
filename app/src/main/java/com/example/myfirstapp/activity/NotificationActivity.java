@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -37,26 +38,31 @@ import okhttp3.Response;
 public class NotificationActivity extends AppCompatActivity {
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
 
+        new AsynchroneTask().execute();
 
-        Button btnNotif = findViewById( R.id.btn_notif );
-        btnNotif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                NotificationHelper notificationHelper = new NotificationHelper(NotificationActivity.this);
-                notificationHelper.notify(1, true, "J'ai soif !", "Votre plante manque d'eau !" );
-                Log.i("NotificationActivity", "Notification launched");
 
-            }
-        });
+
     }
 
+    public class AsynchroneTask extends AsyncTask<String, Integer, String> {
+
+        @Override
+        protected void onPreExecute() {
+            Log.d("ordre", "onPreExecute");
+
+
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return "";
+        }
+    }
 }

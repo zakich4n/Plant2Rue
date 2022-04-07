@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myfirstapp.JsonParcer;
+import com.example.myfirstapp.NotificationHelper;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;
@@ -52,6 +53,9 @@ public class  MaPlanteActivity extends AppCompatActivity {
     TextView textView_humidite_R;
     TextView textView_luminosite_R;
     TextView textView_humidite2_R;
+
+
+    OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +108,14 @@ public class  MaPlanteActivity extends AppCompatActivity {
         new AsynchroneTask().execute();
 
         Button btn_historic = (Button) findViewById(R.id.btn_historic);
-        btn_historic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                historicActivity_go();
+        btn_historic.setOnClickListener(view -> historicActivity_go());
+
+        Button btn_water_act = (Button) findViewById(R.id.btn_water_act);
+        btn_water_act.setOnClickListener(view -> {
+            try {
+                Water_Actuator();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
@@ -178,11 +186,15 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
             if (eval >= 10 ) {
                 humeur_Plante.setImageDrawable(emoji_malade);
+                NotificationHelper notificationHelper = new NotificationHelper(MaPlanteActivity.this);
+                notificationHelper.notify(1, true, "J'ai soif !", "Votre plante manque d'eau !");
+                Log.i("NotificationActivity", "Notification launched");
             } else {
                 if (eval >= 5) {
                     humeur_Plante.setImageDrawable(emoji_neutre);
                 } else {
                     humeur_Plante.setImageDrawable(emoji_coeur);
+
                 }
             }
 
@@ -192,7 +204,6 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
     public void get_data(String url, int id) throws InterruptedException {
 
-        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .get()
                 .url(url)
@@ -214,18 +225,18 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
                             if (id == 1) {
                                 temp_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
-                                Log.d("debug", "Temp -> "+String.valueOf(temp_current));
+                                Log.d("debug", "Temp -> "+temp_current);
                             } else {
                                 if (id ==2) {
                                     hum1_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
-                                    Log.d("debug", "Hum -> "+String.valueOf(hum1_current));
+                                    Log.d("debug", "Hum -> "+hum1_current);
                                 } else {
                                     if (id ==3 ){
                                         lum_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
-                                        Log.d("debug", "Lum -> "+String.valueOf(lum_current));
+                                        Log.d("debug", "Lum -> "+lum_current);
                                     } else {
                                         hum2_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
-                                        Log.d("debug", "Hum2 -> "+String.valueOf(hum2_current));
+                                        Log.d("debug", "Hum2 -> "+hum2_current);
                                     }
                                 }
                             }
@@ -237,6 +248,31 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void Water_Actuator() throws InterruptedException {
+        for (int i=0; i<15; i++){
+            Request request = new Request.Builder()
+                    .get()
+                    .url("https://api.thingspeak.com/update?api_key=XGY8L6DFK8EDVYA0&field5=1")
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                private final String TAG = null;
+
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+
+                }
+            });
+
+            Thread.sleep(1000);
+        }
     }
 
 
