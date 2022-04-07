@@ -32,7 +32,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MaPlanteActivity extends AppCompatActivity {
+public class  MaPlanteActivity extends AppCompatActivity {
 
     DBManager dbManager;
     TextView textview_progress;
@@ -238,6 +238,8 @@ public class MaPlanteActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
 
