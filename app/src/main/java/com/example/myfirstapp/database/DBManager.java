@@ -100,7 +100,7 @@ public class DBManager {
 
 
     public void Delete(){
-        database.delete("Plantes", "nom is not null", null );
+        database.delete("Plantes", "cover is not null", null );
 
     }
 
