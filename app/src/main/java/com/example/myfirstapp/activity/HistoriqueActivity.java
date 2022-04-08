@@ -77,11 +77,6 @@ public class HistoriqueActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        TIdeal = getIntent().getExtras().getInt("TempIdeal");
-        HIdeal = getIntent().getExtras().getInt("HumIdeal");
-        LumIdeal = getIntent().getExtras().getInt("LumIdeal");
-        H2Ideal = getIntent().getExtras().getInt("Hum2Ideal");
-
 
 
         Button btn_actualiser = (Button) findViewById(R.id.btn_actualiser);
