@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfirstapp.JsonParcer;
+import com.example.myfirstapp.helper.JsonParcer;
 import com.example.myfirstapp.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -40,18 +40,22 @@ public class HistoriqueActivity extends AppCompatActivity {
     LineChart lineChartTemp;
     LineData lineDataTemp;
     List<Entry> entryListTemp = new ArrayList<>();
+    //List<Entry> entryListTI = new ArrayList<>();
 
     LineChart lineChartLum;
     LineData lineDataLum;
     List<Entry> entryListLum = new ArrayList<>();
+    //List<Entry> entryListH1I = new ArrayList<>();
 
     LineChart lineChartHum1;
     LineData lineDataHum1;
     List<Entry> entryListHum1 = new ArrayList<>();
+    //List<Entry> entryListLI = new ArrayList<>();
 
     LineChart lineChartHum2;
     LineData lineDataHum2;
     List<Entry> entryListHum2 = new ArrayList<>();
+    //List<Entry> entryListH2I = new ArrayList<>();
 
     LinkedList<Integer> tempList = new LinkedList<>();
     LinkedList<Integer> humList = new LinkedList<>();
@@ -60,6 +64,10 @@ public class HistoriqueActivity extends AppCompatActivity {
 
     LinkedList<Float> timeList = new LinkedList<Float>();
 
+    int TIdeal;
+    int HIdeal;
+    int LumIdeal;
+    int H2Ideal;
 
 
     @Override
@@ -68,6 +76,12 @@ public class HistoriqueActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historique);
 
         getSupportActionBar().hide();
+
+        TIdeal = getIntent().getExtras().getInt("TempIdeal");
+        HIdeal = getIntent().getExtras().getInt("HumIdeal");
+        LumIdeal = getIntent().getExtras().getInt("LumIdeal");
+        H2Ideal = getIntent().getExtras().getInt("Hum2Ideal");
+
 
 
         Button btn_actualiser = (Button) findViewById(R.id.btn_actualiser);
@@ -81,6 +95,14 @@ public class HistoriqueActivity extends AppCompatActivity {
                 entryListHum1.clear();
                 entryListLum.clear();
                 entryListHum2.clear();
+
+                /*
+                entryListTI.clear();
+                entryListH1I.clear();
+                entryListLI.clear();
+                entryListH2I.clear();
+
+                 */
 
                 try {
                     Log.d("debug", "request sent");
@@ -136,7 +158,7 @@ public class HistoriqueActivity extends AppCompatActivity {
     private void PlotGraphHum2() {
         Log.d("debug", "début du plot");
         lineChartHum2 = findViewById(R.id.lineHum2);
-        lineChartHum2.animateX(1000, Easing.EaseOutBounce);
+        //lineChartHum2.animateX(1000, Easing.EaseOutBounce);
 
 
         //cacher la grille
@@ -162,15 +184,27 @@ public class HistoriqueActivity extends AppCompatActivity {
         for (int i=0; i<10; i++){
             entryListHum2.add(new Entry(timeList.get(9-i), hum2List.get(i)));
         }
-
-
         LineDataSet lineDataSet = new LineDataSet(entryListHum2,"Humdité de la terre durant ces dernières minutes ...");
         lineDataSet.setColors(Color.parseColor("#0A91A8"));
         lineDataSet.setLineWidth(3);
         lineDataSet.setFillAlpha(110);
 
+        /*
+        //ligne 2
+        for (int i=0; i<10; i++) {
+            entryListH2I.add(new Entry(timeList.get(9-i), H2Ideal));
+        }
+        LineDataSet lineDataSetH2 = new LineDataSet(entryListH2I,"Humdité du sol idéale");
+        lineDataSetH2.setColors(Color.parseColor("#3CAA3C"));
+        lineDataSetH2.setLineWidth(3);
+        lineDataSetH2.setFillAlpha(110);
+
+         */
+
+
         List<ILineDataSet> dataSets = new ArrayList<>(); // for adding multiple plots
         dataSets.add(lineDataSet);
+        //dataSets.add(lineDataSetH2);
 
         //Plot
         lineDataHum2 = new LineData(dataSets);
@@ -182,7 +216,7 @@ public class HistoriqueActivity extends AppCompatActivity {
 
         Log.d("debug", "début du plot");
         lineChartHum1 = findViewById(R.id.lineHum1);
-        lineChartHum1.animateX(1000, Easing.EaseOutBounce);
+        //lineChartHum1.animateX(1000, Easing.EaseOutBounce);
 
 
         //cacher la grille
@@ -208,14 +242,27 @@ public class HistoriqueActivity extends AppCompatActivity {
         for (int i=0; i<10; i++){
             entryListHum1.add(new Entry(timeList.get(9-i), humList.get(i)));
         }
-
         LineDataSet lineDataSet = new LineDataSet(entryListHum1,"Humidité de l'air durant ces dernières minutes ...");
         lineDataSet.setColors(Color.parseColor("#2C6AAC"));
         lineDataSet.setLineWidth(3);
         lineDataSet.setFillAlpha(110);
 
+        /*
+        //ligne 2
+        for (int i=0; i<10; i++) {
+            entryListH1I.add(new Entry(timeList.get(9-i), HIdeal));
+        }
+        LineDataSet lineDataSetH1 = new LineDataSet(entryListH1I,"Humdité idéale");
+        lineDataSetH1.setColors(Color.parseColor("#3CAA3C"));
+        lineDataSetH1.setLineWidth(3);
+        lineDataSetH1.setFillAlpha(110);
+
+         */
+
+
         List<ILineDataSet> dataSets = new ArrayList<>(); // for adding multiple plots
         dataSets.add(lineDataSet);
+        //dataSets.add(lineDataSetH1);
 
         //Plot
         lineDataHum1 = new LineData(dataSets);
@@ -226,7 +273,7 @@ public class HistoriqueActivity extends AppCompatActivity {
     private void PlotGraphTemp() {
         Log.d("debug", "début du plot");
         lineChartTemp = findViewById(R.id.lineTemp);
-        lineChartTemp.animateX(1000, Easing.EaseOutBounce);
+        //lineChartTemp.animateX(1000, Easing.EaseOutBounce);
 
 
         //cacher la grille
@@ -257,8 +304,21 @@ public class HistoriqueActivity extends AppCompatActivity {
         lineDataSet.setLineWidth(3);
         lineDataSet.setFillAlpha(110);
 
+        /*
+        //ligne 2
+        for (int i=0; i<10; i++) {
+            entryListTI.add(new Entry(timeList.get(9-i), TIdeal));
+        }
+        LineDataSet lineDataSetT = new LineDataSet(entryListTI,"Température idéale");
+        lineDataSetT.setColors(Color.parseColor("#3CAA3C"));
+        lineDataSetT.setLineWidth(3);
+        lineDataSetT.setFillAlpha(110);
+
+         */
+
         List<ILineDataSet> dataSets = new ArrayList<>(); // for adding multiple plots
         dataSets.add(lineDataSet);
+        //dataSets.add(lineDataSetT);
 
         //Plot
         lineDataTemp = new LineData(dataSets);
@@ -269,7 +329,7 @@ public class HistoriqueActivity extends AppCompatActivity {
     private void PlotGraphLum() {
         Log.d("debug", "début du plot");
         lineChartLum = findViewById(R.id.lineLum);
-        lineChartLum.animateX(1000, Easing.EaseOutBounce);
+        //lineChartLum.animateX(1000, Easing.EaseOutBounce);
 
 
         //cacher la grille
@@ -300,8 +360,21 @@ public class HistoriqueActivity extends AppCompatActivity {
         lineDataSet.setLineWidth(3);
         lineDataSet.setFillAlpha(110);
 
+        /*
+        //ligne 2
+        for (int i=0; i<10; i++) {
+            entryListLum.add(new Entry(timeList.get(9-i), LumIdeal));
+        }
+        LineDataSet lineDataSetL = new LineDataSet(entryListLum,"Luminosité idéale");
+        lineDataSetL.setColors(Color.parseColor("#3CAA3C"));
+        lineDataSetL.setLineWidth(3);
+        lineDataSetL.setFillAlpha(110);
+
+         */
+
         List<ILineDataSet> dataSets = new ArrayList<>(); // for adding multiple plots
         dataSets.add(lineDataSet);
+        //dataSets.add(lineDataSetL);
 
         //Plot
         lineDataLum = new LineData(dataSets);

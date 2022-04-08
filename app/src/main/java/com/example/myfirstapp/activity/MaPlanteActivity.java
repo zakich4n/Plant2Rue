@@ -15,15 +15,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myfirstapp.JsonParcer;
-import com.example.myfirstapp.NotificationHelper;
+import com.example.myfirstapp.helper.JsonParcer;
+import com.example.myfirstapp.helper.NotificationHelper;
 import com.example.myfirstapp.R;
 import com.example.myfirstapp.database.DBManager;
 import com.example.myfirstapp.object.Plante;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -54,6 +51,11 @@ public class  MaPlanteActivity extends AppCompatActivity {
     TextView textView_luminosite_R;
     TextView textView_humidite2_R;
 
+    int ExtraTemp;
+    int ExtraHum;
+    int ExtraLum;
+    int ExtraHum2;
+
 
     OkHttpClient client = new OkHttpClient();
 
@@ -79,6 +81,12 @@ public class  MaPlanteActivity extends AppCompatActivity {
         }
 
         Plante LaPlante = dbManager.checkIfExist().get(0);
+
+
+        ExtraTemp = LaPlante.temperature;
+        ExtraHum = LaPlante.humidite;
+        ExtraLum = LaPlante.luminosite;
+        ExtraHum2 = LaPlante.uv;
 
 
         ImageView imageView_Plante = (ImageView) findViewById(R.id.imageView_planteActivity);
@@ -123,6 +131,11 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
     void historicActivity_go(){
         Intent intent_historic_go = new Intent(this, HistoriqueActivity.class);
+        intent_historic_go.putExtra("TempIdeal", ExtraTemp );
+        intent_historic_go.putExtra("HumIdeal", ExtraHum);
+        intent_historic_go.putExtra("LumIdeal", ExtraLum);
+        intent_historic_go.putExtra("Hum2Ideal", ExtraHum2);
+
         startActivity(intent_historic_go);
     }
 

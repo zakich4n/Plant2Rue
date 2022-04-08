@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.example.myfirstapp.helper;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+
+import com.example.myfirstapp.R;
 
 public class NotificationHelper extends ContextWrapper {
     private NotificationManager notifManager;
