@@ -42,20 +42,16 @@ public class  MaPlanteActivity extends AppCompatActivity {
     Drawable emoji_malade;
 
 
-    public static double temp_current;
-    public static double hum1_current;
-    public static double lum_current;
-    public static double hum2_current;
+    public static int temp_current;
+    public static int hum1_current;
+    public static int lum_current;
+    public static int hum2_current;
 
     TextView textView_temperature_R;
     TextView textView_humidite_R;
     TextView textView_luminosite_R;
     TextView textView_humidite2_R;
 
-    int ExtraTemp;
-    int ExtraHum;
-    int ExtraLum;
-    int ExtraHum2;
 
 
     OkHttpClient client = new OkHttpClient();
@@ -84,11 +80,6 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
         Plante LaPlante = dbManager.checkIfExist().get(0);
 
-
-        ExtraTemp = LaPlante.temperature;
-        ExtraHum = LaPlante.humidite;
-        ExtraLum = LaPlante.luminosite;
-        ExtraHum2 = LaPlante.uv;
 
 
         ImageView imageView_Plante = (ImageView) findViewById(R.id.imageView_planteActivity);
@@ -129,10 +120,7 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
     void historicActivity_go(){
         Intent intent_historic_go = new Intent(this, HistoriqueActivity.class);
-        intent_historic_go.putExtra("TempIdeal", ExtraTemp );
-        intent_historic_go.putExtra("HumIdeal", ExtraHum);
-        intent_historic_go.putExtra("LumIdeal", ExtraLum);
-        intent_historic_go.putExtra("Hum2Ideal", ExtraHum2);
+
 
         startActivity(intent_historic_go);
     }
@@ -235,18 +223,18 @@ public class  MaPlanteActivity extends AppCompatActivity {
                         if (!TextUtils.isEmpty(result)) {
 
                             if (id == 1) {
-                                temp_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
+                                temp_current = (int) JsonParcer.getInstance().parseJson_current_settings(result, id);
                                 Log.d("debug", "Temp -> "+temp_current);
                             } else {
                                 if (id ==2) {
-                                    hum1_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
+                                    hum1_current = (int) JsonParcer.getInstance().parseJson_current_settings(result, id);
                                     Log.d("debug", "Hum -> "+hum1_current);
                                 } else {
                                     if (id ==3 ){
-                                        lum_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
+                                        lum_current = (int) JsonParcer.getInstance().parseJson_current_settings(result, id);
                                         Log.d("debug", "Lum -> "+lum_current);
                                     } else {
-                                        hum2_current = JsonParcer.getInstance().parseJson_current_settings(result, id);
+                                        hum2_current = (int) JsonParcer.getInstance().parseJson_current_settings(result, id);
                                         Log.d("debug", "Hum2 -> "+hum2_current);
                                     }
                                 }
