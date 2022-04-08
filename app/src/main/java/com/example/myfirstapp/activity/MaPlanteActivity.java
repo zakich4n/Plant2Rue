@@ -34,6 +34,7 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
     DBManager dbManager;
     TextView textview_progress;
+    TextView textview_progress2;
     ImageView humeur_Plante;
 
     Drawable emoji_coeur;
@@ -65,7 +66,8 @@ public class  MaPlanteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ma_plante);
         getSupportActionBar().hide();
-        textview_progress= findViewById(R.id.textview_progress);
+        textview_progress2 =(TextView) findViewById(R.id.textview_progress2);
+        textview_progress=(TextView) findViewById(R.id.textview_progress);
 
 
         Log.d("debug", "MaPlanteActivity");
@@ -120,11 +122,7 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
         Button btn_water_act = (Button) findViewById(R.id.btn_water_act);
         btn_water_act.setOnClickListener(view -> {
-            try {
-                Water_Actuator();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+           new Asynch2().execute();
         });
 
     }
@@ -264,7 +262,10 @@ public class  MaPlanteActivity extends AppCompatActivity {
     }
 
     public void Water_Actuator() throws InterruptedException {
-        for (int i=0; i<15; i++){
+
+
+        for (int i=0; i<15; i++) {
+            textview_progress2.setVisibility(View.VISIBLE);
             Request request = new Request.Builder()
                     .get()
                     .url("https://api.thingspeak.com/update?api_key=XGY8L6DFK8EDVYA0&field5=1")
@@ -280,11 +281,40 @@ public class  MaPlanteActivity extends AppCompatActivity {
 
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-
                 }
             });
 
             Thread.sleep(1000);
+
+        }
+
+
+    }
+
+
+    public class Asynch2 extends AsyncTask<String, Integer, String> {
+
+        @Override
+        protected void onPreExecute() {
+            textview_progress2.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            try {
+                Water_Actuator();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            textview_progress2.setVisibility(View.INVISIBLE);
+            super.onPostExecute(s);
         }
     }
 
